@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class ArreglosEA1 {
-    public class ArreglosEA1 {
 
     public static void main(String[] args) {
 
@@ -13,13 +12,13 @@ public class ArreglosEA1 {
         int[] vector = new int[16];
 
         System.out.println("Manipulación de Vectores en Java");
-        System.out.println("=====================================");
-        System.out.println("=====================================");
+        System.out.println("======================================");
+        System.out.println("======================================");
         
 
         System.out.println("Ingrese 15 numeros enteros entre 10 y 100:");
 
-for (int i = 1; i < vector.length; i++) {
+        for (int i = 1; i < vector.length; i++) {
 
             int numero;
 
@@ -71,7 +70,8 @@ for (int i = 1; i < vector.length; i++) {
                 " no se encuentra en el vector."
             );
         }
-// =====================================================
+
+        // =====================================================
         // 3. DETERMINAR MAYOR Y MENOR
         // =====================================================
         System.out.println();
@@ -234,6 +234,4 @@ for (int i = 1; i < vector.length; i++) {
 
         System.out.println(" ]");
     }
-}
-
 }
