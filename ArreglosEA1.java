@@ -71,5 +71,169 @@ for (int i = 1; i < vector.length; i++) {
                 " no se encuentra en el vector."
             );
         }
+// =====================================================
+        // 3. DETERMINAR MAYOR Y MENOR
+        // =====================================================
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("3. MAYOR Y MENOR");
+        System.out.println("======================================");
+
+        int mayor = vector[0];
+        int menor = vector[0];
+
+        for (int i = 1; i < vector.length; i++) {
+
+            if (vector[i] > mayor) {
+                mayor = vector[i];
+            }
+
+            if (vector[i] < menor) {
+                menor = vector[i];
+            }
+        }
+
+        System.out.println("Valor mayor: " + mayor);
+        System.out.println("Valor menor: " + menor);
+
+        // =====================================================
+        // 4. IDENTIFICAR MULTIPLOS DE X
+        // =====================================================
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("4. MULTIPLOS DE UN NUMERO X");
+        System.out.println("======================================");
+
+        int x;
+
+        do {
+            System.out.print("Ingrese el numero X (diferente de 0): ");
+            x = teclado.nextInt();
+
+            if (x == 0) {
+                System.out.println("X no puede ser 0.");
+            }
+        } while (x == 0);
+
+        boolean hayMultiplos = false;
+
+        System.out.println("Multiplos de " + x + " encontrados:");
+
+        for (int i = 0; i < vector.length; i++) {
+
+            if (vector[i] % x == 0) {
+                System.out.println(
+                    "El numero " + vector[i] +
+                    " es multiplo de " + x +
+                    " y esta en la posicion " + i + "."
+                );
+                hayMultiplos = true;
+            }
+        }
+
+        if (!hayMultiplos) {
+            System.out.println(
+                "No hay multiplos de " + x + " en el vector."
+            );
+        }
+
+        // =====================================================
+        // 5. CALCULAR LA SUMA TOTAL
+        // =====================================================
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("5. SUMA TOTAL");
+        System.out.println("======================================");
+
+        int suma = 0;
+
+        for (int i = 0; i < vector.length; i++) {
+            suma = suma + vector[i];
+        }
+
+        System.out.println("Suma total de los valores: " + suma);
+
+               // =====================================================
+        // 6. PROMEDIO Y NUEVO VECTOR
+        // =====================================================
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("6. VALORES POR ENCIMA DEL PROMEDIO");
+        System.out.println("======================================");
+
+        // El vector tiene 16 posiciones, pero la posicion 0 no se utiliza.
+        // Por eso dividimos entre 15, que es la cantidad de numeros ingresados.
+        double promedio = (double) suma / 15;
+
+        System.out.println("Promedio: " + promedio);
+
+        // Primero contamos cuantos valores estan por encima del promedio
+        int cantidadMayores = 0;
+
+        for (int i = 1; i < vector.length; i++) {
+            if (vector[i] > promedio) {
+                cantidadMayores++;
+            }
+        }
+
+        if (cantidadMayores == 0) {
+
+            System.out.println(
+                "No hay numeros mayores que el promedio."
+            );
+
+        } else {
+
+            // Crear el nuevo vector con el tamaño exacto
+            int[] vectorMayorPromedio = new int[cantidadMayores];
+
+            int posicion = 0;
+
+            // Llenar el nuevo vector
+            for (int i = 1; i < vector.length; i++) {
+
+                if (vector[i] > promedio) {
+                    vectorMayorPromedio[posicion] = vector[i];
+                    posicion++;
+                }
+            }
+
+            System.out.println(
+                "Vector con numeros por encima del promedio:"
+            );
+            mostrarVector(vectorMayorPromedio);
+
+            System.out.println(
+                "Cantidad de numeros por encima del promedio: "
+                + cantidadMayores
+            );
+        }
+
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("Programa finalizado correctamente.");
+        System.out.println("======================================");
+
+        teclado.close();
+    }
+
+    // =========================================================
+    // METODO PARA MOSTRAR CUALQUIER VECTOR
+    // =========================================================
+    public static void mostrarVector(int[] vector) {
+
+        System.out.print("[ ");
+
+        for (int i = 0; i < vector.length; i++) {
+            System.out.print(vector[i]);
+
+            if (i < vector.length - 1) {
+                System.out.print(", ");
+            }
+        }
+
+        System.out.println(" ]");
+    }
+}
 
 }
